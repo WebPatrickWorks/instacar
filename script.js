@@ -94,11 +94,11 @@ function criarPost(carro) {
     <div class="post-title">${carro.titulo}</div>
 
     <!-- Descrição com "mais" -->
-        <div class="description-container">
-        <span class="description-text clickable" data-full="${carro.descricao}">
-            ${truncarTexto(carro.descricao, 30)}
-        </span>
-        </div>
+    <div class="description-container">
+    <div class="description-text clickable" data-full="${carro.descricao}">
+        ${truncarTexto(carro.descricao, 30)}
+    </div>
+    </div>
     </div>
     `;
 

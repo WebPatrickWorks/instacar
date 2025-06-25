@@ -183,6 +183,13 @@ h1 {
   display: block;
 }
 
+.description-text.clickable {
+  color: #dadada;
+  display: block;
+  cursor: pointer; /* Indica interatividade */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); /* Feedback visual no toque */
+}
+
 .btn-mais {
   flex: 0 0 auto;
   background: none;
