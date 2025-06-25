@@ -33,7 +33,7 @@ const carros = [
   {
     imagem: "images/corolla.png",
     titulo: "Toyota Corolla 2022",
-    descricao: "Toyota Corolla 2022 absolutamente zero quilômetro, em estado impecável de conservação, sem detalhes. Todas as revisões foram feitas rigorosamente dentro do prazo em concessionária autorizada, com histórico completo disponível. Veículo ainda coberto pela garantia de fábrica, garantindo tranquilidade total para o novo proprietário. Modelo moderno, tecnológico e reconhecido por sua durabilidade e conforto. Ideal para quem busca um sedã confiável, seguro e pronto para rodar com desempenho e economia.",
+    descricao: "Toyota Corolla 2022 absolutamente zero quilômetro, em estado impecável de conservação, sem detalhes.",
     curtidas: 34,
     comentarios: 9,
     compartilhamentos: 10,
@@ -119,6 +119,13 @@ function carregarPosts() {
 // Inicializar
 window.onload = carregarPosts;
 
+document.querySelectorAll(".description-container").forEach(container => {
+  const span = container.querySelector(".description-text");
+  const precisaMais = truncarTexto(span.dataset.full, 30).endsWith("...");
+
+  const btnMais = container.querySelector(".btn-mais");
+  btnMais.style.display = precisaMais ? "inline-block" : "none";
+});
 
 document.addEventListener("click", function(e) {
   const btnMais = e.target.closest(".btn-mais");
@@ -155,3 +162,5 @@ document.addEventListener("click", function(e) {
     span.textContent = favs + 1;
   }
 });
+
+

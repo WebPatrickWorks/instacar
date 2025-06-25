@@ -167,10 +167,12 @@ h1 {
 
 .description-container {
   position: relative;
-  max-height: 3.6em; /* Altura de 2 linhas */
-  line-height: 1.8em;
+  max-height: 4em; /* Altura de 2 linhas */
+  line-height: 2em;
   overflow: hidden;
   margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .description-container.full {
@@ -179,19 +181,20 @@ h1 {
 }
 
 .description-text {
-  display: inline;
+  display: block;
+  flex: 1 0 90%; /* ocupar quase toda a linha */
   color: #dadada;
 }
 
 .btn-mais {
+  flex: 0 0 auto;
   background: none;
   border: none;
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  margin-left: 4px;
   padding: 0;
-  vertical-align: top;
+  margin-left: 4px;
 }
 
 .footer-nav {
@@ -234,7 +237,7 @@ h1 {
   color: #ff4b5c; /* cor diferenciada para indicar página atual */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .description-container {
     max-height: 3.6em;
     line-height: 1.8em;
