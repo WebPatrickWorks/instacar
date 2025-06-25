@@ -133,3 +133,27 @@ h1 {
 .btn-perfil:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
+
+
+.description-container {
+  position: relative;
+  max-height: 3.2em; /* Altura de 2 linhas */
+  line-height: 1.6em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+}
+
+.description-container.full {
+  max-height: none;
+  white-space: normal;
+}
+
+.btn-mais {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 4px;
+}
