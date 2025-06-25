@@ -94,12 +94,11 @@ function criarPost(carro) {
     <div class="post-title">${carro.titulo}</div>
 
     <!-- Descrição com "mais" -->
-    <div class="description-container">
-        <span class="description-text" data-full="${carro.descricao}">
-        ${truncarTexto(carro.descricao, 30)}
+        <div class="description-container">
+        <span class="description-text clickable" data-full="${carro.descricao}">
+            ${truncarTexto(carro.descricao, 30)}
         </span>
-        <button class="btn-mais">mais</button>
-    </div>
+        </div>
     </div>
     `;
 
@@ -119,30 +118,20 @@ function carregarPosts() {
 // Inicializar
 window.onload = carregarPosts;
 
-document.querySelectorAll(".description-container").forEach(container => {
-  const span = container.querySelector(".description-text");
-  const precisaMais = truncarTexto(span.dataset.full, 30).endsWith("...");
-
-  const btnMais = container.querySelector(".btn-mais");
-  btnMais.style.display = precisaMais ? "inline-block" : "none";
-});
 
 document.addEventListener("click", function(e) {
-  const btnMais = e.target.closest(".btn-mais");
-  if (!btnMais) return;
+  const texto = e.target.closest(".description-text.clickable");
+  if (!texto) return;
 
-  const container = btnMais.closest(".description-container");
-  const span = container.querySelector(".description-text");
+  const container = texto.closest(".description-container");
 
   const isFull = container.classList.contains("full");
 
   // Alterna entre truncado e completo
   if (isFull) {
-    span.textContent = truncarTexto(span.dataset.full, 30);
-    btnMais.textContent = "mais";
+    texto.textContent = truncarTexto(texto.dataset.full, 30);
   } else {
-    span.textContent = span.dataset.full;
-    btnMais.textContent = "menos";
+    texto.textContent = texto.dataset.full;
   }
 
   container.classList.toggle("full");

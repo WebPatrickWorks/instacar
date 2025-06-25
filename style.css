@@ -171,19 +171,16 @@ h1 {
   line-height: 2em;
   overflow: hidden;
   margin-top: 8px;
-  display: flex;
-  flex-wrap: wrap;
+  cursor: pointer;
 }
 
 .description-container.full {
   max-height: none;
-  white-space: normal;
 }
 
 .description-text {
-  display: block;
-  flex: 1 0 90%; /* ocupar quase toda a linha */
   color: #dadada;
+  display: block;
 }
 
 .btn-mais {
