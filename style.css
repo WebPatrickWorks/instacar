@@ -9,6 +9,16 @@
   display: none;
 }
 
+/* Firefox */
+html {
+  scrollbar-width: none;
+}
+
+/* IE e Edge (antigos) */
+body {
+  -ms-overflow-style: none;
+}
+
 body {
   font-family: 'Arial', sans-serif;
   background-color: #1d1d1d;
@@ -181,4 +191,44 @@ h1 {
   margin-left: 4px;
   vertical-align: top;
   padding: 0;
+}
+
+.footer-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1d1d1d;
+  border-top: 1px solid #333;
+  z-index: 100;
+  padding: 8px 0;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-btn {
+  background: none;
+  border: none;
+  color: #ffdcdc;
+  
+  font-size: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px 8px;
+  transition: color 0.3s ease;
+}
+
+.footer-btn:hover {
+  opacity: 0.7;
+}
+
+/* Ícone ativo (exemplo) */
+.footer-btn.active {
+  color: #ff4b5c; /* cor diferenciada para indicar página atual */
 }
