@@ -121,23 +121,24 @@ window.onload = carregarPosts;
 
 
 document.addEventListener("click", function(e) {
-  if (e.target.closest(".btn-mais")) {
-    const btn = e.target.closest(".btn-mais");
-    const span = btn.previousElementSibling;
+  const btnMais = e.target.closest(".btn-mais");
+  if (!btnMais) return;
 
-    const isFull = span.classList.contains("full");
+  const container = btnMais.closest(".description-container");
+  const span = container.querySelector(".description-text");
 
-    // Alterna entre truncado e completo
-    if (isFull) {
-      span.textContent = truncarTexto(span.dataset.full, 30);
-      btn.textContent = "mais";
-    } else {
-      span.textContent = span.dataset.full;
-      btn.textContent = "menos";
-    }
+  const isFull = container.classList.contains("full");
 
-    span.classList.toggle("full");
+  // Alterna entre truncado e completo
+  if (isFull) {
+    span.textContent = truncarTexto(span.dataset.full, 30);
+    btnMais.textContent = "mais";
+  } else {
+    span.textContent = span.dataset.full;
+    btnMais.textContent = "menos";
   }
+
+  container.classList.toggle("full");
 });
 
 document.addEventListener("click", function(e) {
