@@ -11,7 +11,7 @@ body {
 }
 
 header {
-  text-align: center;
+  text-align: left;
   padding: 15px;
   background-color: #1d1d1d;
   border-bottom: 1px solid #1d1d1d;
@@ -29,6 +29,14 @@ h1 {
   flex-direction: column;
   gap: 16px;
   padding: 16px;
+}
+
+
+.logo img {
+  height: 60px; /* Altura que você quiser */
+  width: auto; /* Mantém proporção */
+  max-width: 100%; /* Evita estourar o container */
+  align-items: start;
 }
 
 .post {
@@ -137,16 +145,19 @@ h1 {
 
 .description-container {
   position: relative;
-  max-height: 3.2em; /* Altura de 2 linhas */
+  max-height: 3.2em; /* altura de 2 linhas */
   line-height: 1.6em;
   overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
 }
 
 .description-container.full {
   max-height: none;
   white-space: normal;
+}
+
+.description-text {
+  display: inline;
+  color: #dadada;
 }
 
 .btn-mais {
@@ -156,4 +167,6 @@ h1 {
   font-weight: bold;
   cursor: pointer;
   margin-left: 4px;
+  vertical-align: top;
+  padding: 0;
 }
