@@ -72,7 +72,8 @@ function criarPost(carro) {
 
     <img src="${carro.imagem}" alt="${carro.titulo}">
     <div class="post-content">
-        <div class="post-interactions">
+    <div class="post-interactions">
+        <div class="left-buttons">
         <button class="interaction-btn like">
             ❤️ <span>${carro.curtidas}</span>
         </button>
@@ -83,13 +84,22 @@ function criarPost(carro) {
             📤 <span>${carro.compartilhamentos}</span>
         </button>
         </div>
-        <div class="post-title">${carro.titulo}</div>
-        
-        <!-- Descrição com "mais" -->
-        <div class="description-container">
-        <span class="description-text" data-full="${carro.descricao}">${truncarTexto(carro.descricao, 30)}</span>
+
+        <!-- Botão Favorito à direita -->
+        <button class="interaction-btn favorite">
+        ⭐ <span>0</span>
+        </button>
+    </div>
+
+    <div class="post-title">${carro.titulo}</div>
+
+    <!-- Descrição com "mais" -->
+    <div class="description-container">
+        <span class="description-text" data-full="${carro.descricao}">
+        ${truncarTexto(carro.descricao, 30)}
+        </span>
         <button class="btn-mais">mais</button>
-        </div>
+    </div>
     </div>
     `;
 
@@ -127,5 +137,20 @@ document.addEventListener("click", function(e) {
     }
 
     span.classList.toggle("full");
+  }
+});
+
+document.addEventListener("click", function(e) {
+  if (e.target.closest(".favorite")) {
+    const btn = e.target.closest(".favorite");
+    const span = btn.querySelector("span");
+    let favs = parseInt(span.textContent);
+    span.textContent = favs + 1;
+  }
+  if (e.target.closest(".like")) {
+    const btn = e.target.closest(".like");
+    const span = btn.querySelector("span");
+    let favs = parseInt(span.textContent);
+    span.textContent = favs + 1;
   }
 });
